@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import DailyGainers from "./Components/DailyGainers";
+import DailyLosers from "./Components/DailyLosers";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Landing } from "./Components/Landing";
+import About from "./Components/About";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Landing />} />
+          <Route path="dailygainers" element={<DailyGainers />} />
+          <Route path="dailylosers" element={<DailyLosers />} />
+          <Route path="about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
